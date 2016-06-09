@@ -11,8 +11,6 @@ module.exports = function(passport) {
   };
 
   passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-    console.warn('what is jwt_payload?', jwt_payload);
-
     User.findOne({
       id: jwt_payload.id
     }, (err, user) => {
